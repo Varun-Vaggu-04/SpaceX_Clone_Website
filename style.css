@@ -397,6 +397,15 @@ section {
     justify-content: center;
 }
 
+/* rideshare main */
+.rideshare-head {
+    font-size: 55px;
+}
+
+.rideshare-desc {
+    font-size: 15px;
+}
+
 /* starshield stats */
 .starshield-counter {
     font-size: 70px;
