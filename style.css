@@ -116,6 +116,7 @@ section {
 
 .section-content-center h1 {
     font-size: 95px;
+    width: 200px;
     margin-bottom: 40px;
     animation: fadeInUp 0.5s ease-in-out;
     animation-fill-mode: both;
@@ -359,7 +360,7 @@ section {
 
 /* falcon9 stats styling */
 .stats {
-    max-width: 50%;
+    max-width: 800px;
     margin: 0 auto;
     padding: 70px 0;
     display: flex;
@@ -367,10 +368,6 @@ section {
     justify-content: space-between;
     text-align: center;
     text-transform: uppercase;
-}
-
-.stats div {
-    margin: 10px;
 }
 
 .stats div span {
