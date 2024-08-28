@@ -43,8 +43,8 @@ section {
 .section-content {
     position: absolute;
     bottom: 120px;
-    padding-left: 110px;
-    margin-bottom: 100px;
+    left: 110px;
+    max-width: 560px;
 }
 
 .background {
@@ -98,6 +98,7 @@ section {
     margin-bottom: 20px;
     animation: fadeInUp 0.75s ease-in-out;
     animation-fill-mode: both;
+    line-height: 48px;
 }
 
 .section-content span {
@@ -112,6 +113,7 @@ section {
     transform: translate(-50%, -50%);
     text-transform: uppercase;
     text-align: center;
+    width: 100%;
 }
 
 .section-content-center h1 {
@@ -164,7 +166,7 @@ section {
 
 /* header styling */
 .main-header {
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
@@ -175,7 +177,7 @@ section {
     justify-content: space-between;
     align-items: center;
     text-transform: uppercase;
-    font-family: 'd-dindin-bold';
+    font-family: D-DIN-Regular, Arial, Verdana, sans-serif;
 }
 
 .logo {
@@ -183,12 +185,6 @@ section {
     height: auto;
     margin-left: 90px;
 }
-
-/* .logo img {
-    display: block;
-    width: 100%;
-    height: auto;
-} */
 
 .logo a svg {
     display: block;
@@ -212,7 +208,7 @@ section {
 }
 
 .desktop-main-menu ul li {
-    font-family: Arial, Verdana, sans-serif;
+    font-family: D-DIN-Regular, Arial, Verdana, sans-serif;
     margin-left: 30px;
     font-size: 13.5px;
     position: relative;
@@ -256,6 +252,95 @@ section {
 .hamburger-bottom {
     transform: translateY(8px);
 }
+
+/* open hamburger */
+.open {
+    transform: rotate(90deg);
+    top: 61.5px;
+    right: 25px;
+}
+
+.open .hamburger-top {
+    transform: rotate(45deg);
+}
+
+.open .hamburger-middle {
+    opacity: 0;
+}
+
+.open .hamburger-bottom {
+    transform: rotate(-45deg);
+}
+
+#overlay {
+    transition: all 0.6s ease;
+}
+
+.overlay-show {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 4;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* hide desktop menu items */
+.mobile-only {
+    display: none;
+}
+
+/* mobile menu styling */
+.mobile-main-menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 350px;
+    height: 100vh;
+    z-index: 4;
+    background-color: #000;
+    display: flex;
+    align-items: top;
+    justify-content: center;
+    transform: translateX(100%);
+    transition: transform 0.8s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.show-menu {
+    transform: translateX(0);
+}
+
+.mobile-main-menu ul {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    margin-top: 60px;
+    padding: 30px;
+    width: 100%;
+}
+
+.mobile-main-menu ul li {
+    margin-bottom: 15px;
+    font-size: 16px;
+    text-transform: uppercase;
+    border-bottom: 1px dotted rgba(255, 255, 255, 0.25);
+    width: 100%;
+    padding-bottom: 8px;
+    text-align: right;
+    position: relative;
+}
+
+.mobile-main-menu ul li a {
+    opacity: 1;
+    transition: opacity 0.3s ease;
+    font-family: D-DIN-Regular, Arial, Verdana, sans-serif;
+}
+
+.mobile-main-menu ul li a:hover {
+    opacity: 0.55;
+}
+
 
 /* menu animation */
 .desktop-main-menu ul li a::after,
@@ -373,16 +458,6 @@ section {
     font-size: 120px;
 }
 
-.hs-suits-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    background-size: cover;
-    position: relative;
-}
-
 .stats div h1 {
     font-size: 80px;
 }
@@ -392,10 +467,45 @@ section {
     font-weight: 100;
 }
 
+/* human spaceflight*/
+.human-spaceflight-section {
+    position: absolute;
+    width: 100%;
+    top: 42%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.human-spaceflight-section h1 {
+    font-size: 75px;
+    margin-bottom: 40px;
+    animation: fadeInUp 0.5s ease-in-out;
+    animation-fill-mode: both;
+}
+
+.human-spaceflight-section p {
+    font-size: 20px;
+    animation: fadeInUp 0.5s ease-in-out 0.2s;
+    animation-fill-mode: both;
+}
+
+.hs-suits-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /*width: 100%;
+    /*background-size: cover;
+    position: relative;*/
+}
+
 .human-spacelift-suit-img-con {
     display: flex;
     flex-direction: row;
     justify-content: center;
+    width: 100%;
 }
 
 /* rideshare main */
@@ -537,7 +647,6 @@ footer ul li a:hover {
     }
     .section-content-center {
         top: 50%;
-        width: 80%;
     }
     .section-content-center h1 {
         font-size: 70px;
@@ -566,11 +675,19 @@ footer ul li a:hover {
         left: 30px;
         width: 85%;
     }
+    .section-content p {
+        font-size: 16px;
+    }
     .section-content h1 {
-        font-size: 34px;
+        font-size: 30px;
+    }
+    .btn {
+        min-width: 150px;
+        padding: 10px 45px;
+        margin-top: 10px;
     }
     .section-content-center h1 {
-        font-size: 45px;
+        font-size: 44px;
     }
     .section-content-center p {
         font-size: 14px;
@@ -578,7 +695,7 @@ footer ul li a:hover {
     }
     .stats {
         padding: 50px 0;
-        width: 70%;
+        width: 100%;
     }
     .stats div span {
         font-size: 50px;
@@ -596,6 +713,27 @@ footer ul li a:hover {
     .section-2-content {
         margin-left: 0;
     }
+    .hs-suits-container h1 {
+        font-size: 35px !important;
+        animation: fadeInUp 0.5s ease-in-out;
+        animation-fill-mode: both;
+    }
+    .hs-suits-container h2 {
+        font-size: 10px;
+        animation: fadeInUp 0.5s ease-in-out 0.4s;
+        animation-fill-mode: both;
+    }
+    .hs-suits-image {
+        width: 100%;
+        animation: fadeInUp 0.5s ease-in-out 0.2s;
+        animation-fill-mode: both;
+    }
+    .rideshare-head {
+        font-size: 35px !important;
+    }
+    .starshield-counter {
+        font-size: 25px !important;
+    }
     footer ul li:first-child {
         position: absolute;
         top: 30px;
@@ -603,6 +741,6 @@ footer ul li a:hover {
         transform: translate(-50%,-50%);
     }
     footer ul li {
-        margin-left: 15px;
+        margin: 0 15px;
     }
 }
